@@ -55,8 +55,7 @@ function App() {
       <header className="header">
         <div className="container nav">
           <a className="brand" href="#home" onClick={closeMenu}>
-            <span className="brand-mark">A</span>
-            <span><strong>AURELION</strong><small>GLOBAL</small></span>
+            <img className="brand-logo" src="/aurelion-global-logo.png" alt="Aurelion Global" />
           </a>
 
           <button className="menu-btn" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>
@@ -89,6 +88,7 @@ function App() {
             </div>
           </div>
           <div className="hero-image" aria-hidden="true">
+            <div className="hero-logo-badge"><img src="/aurelion-global-logo.png" alt="" /></div>
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=90" alt="" />
             <div className="hero-image-overlay"></div>
             <div className="floating-card"><span>01</span><strong>Vision into value</strong><small>Across every business we build.</small></div>
@@ -216,7 +216,7 @@ function App() {
 
       <footer className="footer">
         <div className="container footer-top">
-          <a className="brand footer-brand" href="#home"><span className="brand-mark">A</span><span><strong>AURELION</strong><small>GLOBAL</small></span></a>
+          <a className="brand footer-brand" href="#home"><img className="brand-logo" src="/aurelion-global-logo.png" alt="Aurelion Global" /></a>
           <p>Building businesses. Creating impact.</p>
           <div className="footer-links"><a href="#about">About</a><a href="#businesses">Businesses</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
         </div>
