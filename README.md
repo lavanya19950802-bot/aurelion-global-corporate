@@ -44,3 +44,14 @@ npm run preview
 6. Add Google Analytics/Tag Manager if required.
 7. Add your final Privacy Policy and Terms pages.
 8. Update the favicon and social sharing image.
+
+
+## Phani Bhushan Hospitals transition
+
+The Aurelion homepage includes an animated hospital introduction and gold-curtain transition. Configure the real deployed hospital URL before publishing:
+
+1. Copy `.env.example` to `.env.local` for local development.
+2. Set `VITE_PHANI_HOSPITAL_URL` to the live Phani Bhushan Hospitals URL.
+3. In Vercel, add `VITE_PHANI_HOSPITAL_URL` under Project Settings → Environment Variables, then redeploy.
+
+The code includes a temporary fallback URL for preview only; replace it with the actual deployment URL.
