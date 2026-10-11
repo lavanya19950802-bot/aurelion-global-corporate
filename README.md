@@ -46,12 +46,13 @@ npm run preview
 8. Update the favicon and social sharing image.
 
 
-## Phani Bhushan Hospitals transition
+## Phani Bhushan Hospitals entry transition
+The Explore our hospitals button and hospital-card arrow open a full-screen ivory-and-gold introduction. Select **Enter Phani Bhushan Hospitals** to animate the gold curtains open and then navigate to the hospital website. **Skip intro** navigates directly.
 
-The Aurelion homepage includes an animated hospital introduction and gold-curtain transition. Configure the real deployed hospital URL before publishing:
+Configure the destination before deployment by creating a `.env` file in the project root:
 
-1. Copy `.env.example` to `.env.local` for local development.
-2. Set `VITE_PHANI_HOSPITAL_URL` to the live Phani Bhushan Hospitals URL.
-3. In Vercel, add `VITE_PHANI_HOSPITAL_URL` under Project Settings → Environment Variables, then redeploy.
+```env
+VITE_PHANI_HOSPITAL_URL=https://your-live-phani-bhushan-hospitals-url
+```
 
-The code includes a temporary fallback URL for preview only; replace it with the actual deployment URL.
+For Vercel, add `VITE_PHANI_HOSPITAL_URL` under Project Settings → Environment Variables, then redeploy. Replace the fallback URL in `src/main.jsx` with the actual deployed hospital URL before production if no environment variable is set.
