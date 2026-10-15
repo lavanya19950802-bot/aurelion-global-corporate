@@ -49,7 +49,7 @@ function App() {
       <header className="header">
         <div className="container nav">
           <a className="brand" href="#home" onClick={closeMenu} aria-label="Aurelion Global Hospitals home">
-            <img className="brand-logo" src="/aurelion-global-logo.png" alt="Aurelion Global" />
+            <img className="brand-logo" src="/aurelion-global-logo.jpg" alt="Aurelion Global" />
           </a>
           <button className="menu-btn" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X /> : <Menu />}
@@ -183,7 +183,7 @@ function App() {
 
       <footer className="footer">
         <div className="container footer-main">
-          <div className="footer-brand-col"><a className="brand footer-brand" href="#home"><img className="brand-logo" src="/aurelion-global-logo.png" alt="Aurelion Global" /></a><p>Thoughtful care. Meaningful outcomes.</p></div>
+          <div className="footer-brand-col"><a className="brand footer-brand" href="#home"><img className="brand-logo" src="/aurelion-global-logo.jpg" alt="Aurelion Global" /></a><p>Thoughtful care. Meaningful outcomes.</p></div>
           <div className="footer-col"><small>EXPLORE</small><a href="#about">Our philosophy</a><a href="#hospitals">Our hospitals</a><a href="#careers">Careers</a></div>
           <div className="footer-col"><small>GET IN TOUCH</small><a href="mailto:hello@aurelionglobal.com">Email us</a><a href="tel:+919876543210">Call us</a><a href="#contact">Contact</a></div>
           <div className="footer-signoff">Care,<br /><em>together.</em></div>
@@ -194,22 +194,20 @@ function App() {
       <a className="whatsapp-float" href="https://wa.me/919876543210" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle size={22} /></a>
 
       {showHospitalIntro && (
-        <div className={`hospital-intro-overlay ${curtainsOpening ? "is-opening" : ""} ${redirecting ? "is-redirecting" : ""}`} role="dialog" aria-modal="true" aria-label="Enter Phani Bhushan Hospitals">
-          <button className="intro-close" onClick={() => setShowHospitalIntro(false)} aria-label="Close hospital introduction"><X size={20} /></button>
-          <div className="intro-glow" />
-          <div className="intro-content">
-            <div className="intro-emblem"><HeartPulse size={36} strokeWidth={1.35} /></div>
-            <div className="intro-kicker">A NEW CHAPTER IN CARE</div>
-            <h2>Phani Bhushan<br /><em>Hospitals</em></h2>
-            <p>Compassion at heart. Excellence in every moment.</p>
-            <button className="intro-enter-btn" onClick={enterHospital} disabled={curtainsOpening}>
-              {curtainsOpening ? "Opening the doors" : "Enter Phani Bhushan Hospitals"} <ArrowRight size={17} />
-            </button>
-            <button className="intro-skip" onClick={() => { window.location.href = hospitalUrl; }}>Skip intro</button>
+        <div
+          className={`hospital-intro-overlay logo-only-intro ${curtainsOpening ? "is-opening" : ""} ${redirecting ? "is-redirecting" : ""}`}
+          role="button"
+          tabIndex={0}
+          aria-label="Open Phani Bhushan Hospitals"
+          onPointerDown={enterHospital}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); enterHospital(); } }}
+        >
+          <div className="intro-glow" aria-hidden="true" />
+          <div className="intro-content logo-only-content">
+            <img className="intro-hospital-logo" src="/phani-bhushan-logo.jpg" alt="Phani Bhushan Hospitals" draggable="false" />
           </div>
           <div className="gold-curtain curtain-left" aria-hidden="true"><span /></div>
           <div className="gold-curtain curtain-right" aria-hidden="true"><span /></div>
-          {redirecting && <div className="intro-redirect-message">Welcoming you to better care…</div>}
         </div>
       )}
 
