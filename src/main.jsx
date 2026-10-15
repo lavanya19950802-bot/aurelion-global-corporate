@@ -203,6 +203,14 @@ function App() {
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); enterHospital(); } }}
         >
           <div className="intro-glow" aria-hidden="true" />
+          <div className="intro-starfield" aria-hidden="true">
+            <span className="intro-star star-1">✦</span><span className="intro-star star-2">✧</span>
+            <span className="intro-star star-3">✦</span><span className="intro-star star-4">✧</span>
+            <span className="intro-star star-5">✦</span><span className="intro-star star-6">✧</span>
+            <span className="intro-star star-7">✦</span><span className="intro-star star-8">✧</span>
+            <span className="intro-star star-9">✦</span><span className="intro-star star-10">✧</span>
+            <span className="intro-star star-11">✦</span><span className="intro-star star-12">✧</span>
+          </div>
           <div className="intro-content logo-only-content">
             <img className="intro-hospital-logo" src="/phani-bhushan-logo.jpg" alt="Phani Bhushan Hospitals" draggable="false" />
           </div>

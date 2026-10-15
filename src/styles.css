@@ -31,3 +31,21 @@
 .intro-hospital-logo{display:block;width:min(82vw,720px);max-height:70vh;height:auto;object-fit:contain;pointer-events:none;filter:drop-shadow(0 8px 24px rgba(103,76,24,.08))}
 .logo-only-intro .intro-glow{pointer-events:none}
 @media(max-width:600px){.logo-only-intro .intro-content.logo-only-content{width:94vw}.intro-hospital-logo{width:92vw;max-height:60vh}}
+
+
+/* Subtle celestial gold sparkle for the Phani Bhushan handoff */
+.logo-only-intro .intro-glow{width:min(88vw,900px);background:radial-gradient(circle,rgba(214,180,95,.24) 0%,rgba(214,180,95,.09) 32%,transparent 69%);animation:introGlow 4.2s ease-in-out infinite alternate}
+.intro-starfield{position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none}
+.intro-star{position:absolute;display:block;color:#b8954c;line-height:1;text-shadow:0 0 9px rgba(198,160,74,.38);opacity:0;animation:goldStarTwinkle 3.6s ease-in-out infinite;will-change:transform,opacity}
+.star-1{top:19%;left:18%;font-size:21px;animation-delay:.1s}.star-2{top:27%;left:76%;font-size:27px;animation-delay:1.2s}
+.star-3{top:68%;left:16%;font-size:16px;animation-delay:1.8s}.star-4{top:73%;left:82%;font-size:22px;animation-delay:.7s}
+.star-5{top:15%;left:58%;font-size:13px;animation-delay:2.1s}.star-6{top:42%;left:10%;font-size:19px;animation-delay:1.5s}
+.star-7{top:52%;left:89%;font-size:15px;animation-delay:.4s}.star-8{top:83%;left:37%;font-size:20px;animation-delay:2.4s}
+.star-9{top:31%;left:31%;font-size:12px;animation-delay:2.8s}.star-10{top:61%;left:69%;font-size:15px;animation-delay:1s}
+.star-11{top:84%;left:68%;font-size:12px;animation-delay:1.9s}.star-12{top:12%;left:84%;font-size:16px;animation-delay:2.6s}
+.logo-only-intro .intro-hospital-logo{animation:logoFloat 5s ease-in-out infinite;filter:drop-shadow(0 10px 25px rgba(151,112,36,.13))}
+@keyframes goldStarTwinkle{0%,100%{opacity:0;transform:scale(.55) rotate(-18deg)}35%{opacity:.78;transform:scale(1) rotate(0)}65%{opacity:.42;transform:scale(.82) rotate(14deg)}}
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes logoReveal{from{opacity:0;transform:translateY(12px) scale(.94);filter:blur(4px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0) drop-shadow(0 10px 25px rgba(151,112,36,.13))}}
+.hospital-intro-overlay.is-opening .intro-starfield{opacity:0;transition:opacity .35s ease}
+@media(prefers-reduced-motion:reduce){.intro-star,.logo-only-intro .intro-hospital-logo{animation:none!important;opacity:.5}.logo-only-intro .intro-hospital-logo{opacity:1}}
