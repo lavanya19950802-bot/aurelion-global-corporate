@@ -210,6 +210,9 @@ function App() {
             <span className="intro-star star-7">✦</span><span className="intro-star star-8">✧</span>
             <span className="intro-star star-9">✦</span><span className="intro-star star-10">✧</span>
             <span className="intro-star star-11">✦</span><span className="intro-star star-12">✧</span>
+            <span className="intro-star star-13">✦</span><span className="intro-star star-14">✧</span>
+            <span className="intro-star star-15">✦</span><span className="intro-star star-16">✧</span>
+            <span className="intro-star star-17">✦</span><span className="intro-star star-18">✧</span>
           </div>
           <div className="intro-content logo-only-content">
             <img className="intro-hospital-logo" src="/phani-bhushan-logo.jpg" alt="Phani Bhushan Hospitals" draggable="false" />
