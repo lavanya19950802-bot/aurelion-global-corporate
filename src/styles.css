@@ -50,3 +50,29 @@
 @keyframes logoReveal{from{opacity:0;transform:translateY(12px) scale(.94);filter:blur(4px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0) drop-shadow(0 10px 25px rgba(151,112,36,.13))}}
 .hospital-intro-overlay.is-opening .intro-starfield{opacity:0;transition:opacity .35s ease}
 @media(prefers-reduced-motion:reduce){.intro-star,.logo-only-intro .intro-hospital-logo{animation:none!important;opacity:.5}.logo-only-intro .intro-hospital-logo{opacity:1}}
+
+/* Featured Phani Bhushan Hospitals listing */
+.phani-hospital-card .hospital-image{outline:1px solid rgba(174,137,63,.35);outline-offset:-1px}
+.hospital-feature-tag{position:absolute;right:12px;bottom:12px;background:rgba(255,255,255,.94);color:var(--gold-deep);padding:8px 10px;font-size:8px;letter-spacing:1px;font-weight:600}
+.video-watch-link{text-decoration:none;color:var(--ink)}
+.video-watch-link:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+
+
+/* Full-width layout: remove the fixed max-width and outer side margins. */
+.container{
+  width:100% !important;
+  max-width:none !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  padding-left:clamp(12px, 1.5vw, 24px) !important;
+  padding-right:clamp(12px, 1.5vw, 24px) !important;
+}
+html,body,#root{width:100%;max-width:100%;margin-left:0;margin-right:0;}
+section,header,footer,main{max-width:100%;}
+
+
+/* Watch Overview: play the supplied Aurovila video directly inside the modal. */
+.video-modal-card{width:min(1100px,96vw);padding:0;overflow:hidden;background:#090909;box-shadow:0 24px 80px rgba(0,0,0,.28)}
+.video-modal-card .modal-close{right:12px;top:12px;background:rgba(255,255,255,.94);color:#211b10;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.overview-video{display:block;width:100%;max-height:82vh;aspect-ratio:16/9;object-fit:contain;background:#090909}
+@media(max-width:680px){.video-modal-card{width:calc(100vw - 24px)}.overview-video{max-height:72vh;aspect-ratio:9/16}}

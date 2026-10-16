@@ -56,3 +56,7 @@ VITE_PHANI_HOSPITAL_URL=https://your-live-phani-bhushan-hospitals-url
 ```
 
 For Vercel, add `VITE_PHANI_HOSPITAL_URL` under Project Settings → Environment Variables, then redeploy. Replace the fallback URL in `src/main.jsx` with the actual deployed hospital URL before production if no environment variable is set.
+
+
+## Watch overview video
+The Watch overview button plays `public/aurovila.mp4` directly in an in-page video player. Replace that file to update the video; keep the filename the same or update the video source in `src/main.jsx`.

@@ -22,7 +22,8 @@ const carePrinciples = [
 const hospitals = [
   { name: "Aurelion Hospitals — Central", type: "Multispecialty care", image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=85" },
   { name: "Aurelion Women & Children", type: "Women and child health", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85" },
-  { name: "Aurelion Specialty Centre", type: "Advanced specialty care", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" }
+  { name: "Aurelion Specialty Centre", type: "Advanced specialty care", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" },
+  { name: "Phani Bhushan Hospitals", type: "Specialty hospital network", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85", phani: true }
 ];
 
 function App() {
@@ -133,9 +134,9 @@ function App() {
               <p>Connected by one purpose, each Aurelion hospital is built around thoughtful experiences, trusted expertise and better care.</p>
             </div>
             <div className="hospital-grid">
-              {hospitals.map((hospital, index) => <article className="hospital-card" key={hospital.name}>
-                <div className="hospital-image"><img src={hospital.image} alt={hospital.name} loading="lazy" /><span>0{index + 1}</span></div>
-                <div className="hospital-meta"><div><small>{hospital.type}</small><h3>{hospital.name}</h3></div><button className="hospital-enter-link" onClick={openHospitalIntro} aria-label={`Explore ${hospital.name}`}><ArrowUpRight size={19} /></button></div>
+              {hospitals.map((hospital, index) => <article className={`hospital-card ${hospital.phani ? "phani-hospital-card" : ""}`} key={hospital.name}>
+                <div className="hospital-image"><img src={hospital.image} alt={hospital.name} loading="lazy" /><span>0{index + 1}</span>{hospital.phani && <b className="hospital-feature-tag">FEATURED NETWORK</b>}</div>
+                <div className="hospital-meta"><div><small>{hospital.type}</small><h3>{hospital.name}</h3></div><button className="hospital-enter-link" onClick={hospital.phani ? openHospitalIntro : openHospitalIntro} aria-label={`Explore ${hospital.name}`}><ArrowUpRight size={19} /></button></div>
               </article>)}
             </div>
             <div className="hospitals-bottom"><span>More possibilities for healthier lives.</span><a href="#contact" className="text-link">Find the right care <ArrowRight size={15} /></a></div>
@@ -222,7 +223,7 @@ function App() {
         </div>
       )}
 
-      {showVideo && <div className="modal" role="dialog" aria-modal="true" aria-label="Watch overview" onClick={() => setShowVideo(false)}><div className="modal-card" onClick={e => e.stopPropagation()}><button className="modal-close" aria-label="Close overview" onClick={() => setShowVideo(false)}><X /></button><div className="fake-video"><div className="video-mark"><Stethoscope size={24} /></div><span>The Aurelion approach to care</span><small>Corporate overview</small><button className="video-close" onClick={() => setShowVideo(false)}>Return to website <ArrowRight size={14} /></button></div></div></div>}
+      {showVideo && <div className="modal" role="dialog" aria-modal="true" aria-label="Watch overview" onClick={() => setShowVideo(false)}><div className="modal-card video-modal-card" onClick={e => e.stopPropagation()}><button className="modal-close" aria-label="Close overview" onClick={() => setShowVideo(false)}><X /></button><video className="overview-video" src="/aurovila.mp4" controls autoPlay playsInline preload="metadata">Your browser does not support embedded video.</video></div></div>}
     </div>
   );
 }
