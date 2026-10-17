@@ -20,13 +20,13 @@ const carePrinciples = [
 ];
 
 const hospitals = [
-  { name: "Aurelion Hospitals — Central", type: "Multispecialty care", image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=85" },
-  { name: "Aurelion Women & Children", type: "Women and child health", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85" },
-  { name: "Aurelion Specialty Centre", type: "Advanced specialty care", image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=85" },
-  { name: "Phani Bhushan Hospitals", type: "Specialty hospital network", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85", phani: true }
+  { name: "Phani Bhushan Hospitals", type: "Hospital network", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85", phani: true }
 ];
 
 function App() {
+  const page = window.location.pathname.replace(/\/+$/, "").split("/").pop() || "home";
+  const isCareersPage = page === "careers";
+  const isContactPage = page === "contact";
   const [menuOpen, setMenuOpen] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -46,34 +46,36 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className={`app ${isCareersPage ? "page-careers" : isContactPage ? "page-contact" : "page-home"}`}>
       <header className="header">
         <div className="container nav">
-          <a className="brand" href="#home" onClick={closeMenu} aria-label="Aurelion Global Hospitals home">
-            <img className="brand-logo" src="/aurelion-global-logo.jpg" alt="Aurelion Global" />
+          <a className="brand" href="/" onClick={closeMenu} aria-label="Aurelion Global home">
+            <img className="brand-logo" src="/aurelion-global-logo.jpg" alt="Aurelion Global emblem" />
+            <span className="brand-wordmark"><span className="brand-name">Aurelion Global</span><small>PRIVATE LIMITED</small></span>
           </a>
           <button className="menu-btn" aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X /> : <Menu />}
           </button>
           <nav className={menuOpen ? "nav-links open" : "nav-links"}>
-            {[ ["Home", "home"], ["About", "about"], ["Hospitals", "hospitals"], ["Careers", "careers"], ["Contact", "contact"] ].map(([label, id]) => (
-              <a key={id} href={`#${id}`} onClick={closeMenu}>{label}</a>
+            {[ ["Home", "/"], ["About", "/#about"], ["Hospitals", "/#hospitals"], ["Careers", "/careers"], ["Contact", "/contact"] ].map(([label, href]) => (
+              <a key={label} href={href} onClick={closeMenu}>{label}</a>
             ))}
-            <a className="nav-cta" href="#contact" onClick={closeMenu}>Reach us <ArrowUpRight size={14} /></a>
+            <a className="nav-cta" href="/contact" onClick={closeMenu}>Reach us <ArrowUpRight size={14} /></a>
           </nav>
         </div>
       </header>
 
       <main>
+        {isContactPage && <section className="page-intro contact-page-intro"><div className="container"><div className="section-label">CONTACT</div><h1>Reach us.</h1></div></section>}
         <section id="home" className="hero">
           <div className="container hero-layout">
             <div className="hero-content">
               <div className="eyebrow"><span /> AURELION GLOBAL HOSPITALS</div>
               <h1>The art of<br /><em>healing,</em><br />perfected.</h1>
-              <p>Aurelion Global is a healthcare company caring for a family of world-class hospitals — beginning with Aurelion Hospitals — where clinical excellence meets profound humanity.</p>
+              <p>Aurelion Global is a healthcare company nurturing a family of world-class hospitals — beginning with Phani Bhushan Hospitals — where clinical excellence meets profound humanity.</p>
               <div className="hero-actions">
                 <a href="#hospital-intro" onClick={openHospitalIntro} className="btn btn-primary">Explore our hospitals <ArrowRight size={15} /></a>
-                <a href="#careers" className="btn btn-outline">Join our mission</a>
+                <a href="/careers" className="btn btn-outline">Join our mission</a>
                 <button className="btn btn-watch" onClick={() => setShowVideo(true)}><span className="play"><Play size={11} fill="currentColor" /></span> Watch overview</button>
               </div>
               <div className="hero-note"><span className="gold-dash" /> Thoughtful care. Meaningful outcomes.</div>
@@ -145,10 +147,10 @@ function App() {
 
         <section id="careers" className="careers-section">
           <div className="container careers-content">
-            <div className="section-label">MAKE A DIFFERENCE WITH US</div>
-            <h2>Care is a calling.<br /><em>Make it yours.</em></h2>
-            <p>Join a team where expertise is respected, curiosity is encouraged and every role can make a difference.</p>
-            <div className="careers-actions"><a href="#contact" className="btn btn-gold">Explore opportunities <ArrowRight size={15} /></a><a href="#contact" className="btn btn-dark-outline">Partner with us <ArrowUpRight size={15} /></a></div>
+            <div className="section-label">CAREERS</div>
+            <h2>Build a career that<br /><em>matters.</em></h2>
+            <p>Join a company where exceptional people are trusted to do their finest work — in service of something profoundly human.</p>
+            <div className="careers-actions"><a href="#contact" className="btn btn-gold">Explore opportunities <ArrowRight size={15} /></a></div>
           </div>
         </section>
 
@@ -183,10 +185,14 @@ function App() {
       </main>
 
       <footer className="footer">
+        <div className="footer-cta-block">
+          <h2>Let’s build the future of<br />care, <em>together.</em></h2>
+          <div className="footer-cta-actions"><a href="/contact" className="btn btn-gold">Contact us <ArrowUpRight size={15} /></a><a href="/careers" className="btn btn-dark-outline">View careers</a></div>
+        </div>
         <div className="container footer-main">
-          <div className="footer-brand-col"><a className="brand footer-brand" href="#home"><img className="brand-logo" src="/aurelion-global-logo.jpg" alt="Aurelion Global" /></a><p>Thoughtful care. Meaningful outcomes.</p></div>
-          <div className="footer-col"><small>EXPLORE</small><a href="#about">Our philosophy</a><a href="#hospitals">Our hospitals</a><a href="#careers">Careers</a></div>
-          <div className="footer-col"><small>GET IN TOUCH</small><a href="mailto:hello@aurelionglobal.com">Email us</a><a href="tel:+919876543210">Call us</a><a href="#contact">Contact</a></div>
+          <div className="footer-brand-col"><a className="brand footer-brand" href="/"><img className="brand-logo" src="/aurelion-global-logo.jpg" alt="Aurelion Global emblem" /><span className="brand-wordmark"><span className="brand-name">Aurelion Global</span><small>PRIVATE LIMITED</small></span></a><p>Thoughtful care. Meaningful outcomes.</p></div>
+          <div className="footer-col"><small>EXPLORE</small><a href="#about">Our philosophy</a><a href="#hospitals">Our hospitals</a><a href="/careers">Careers</a></div>
+          <div className="footer-col"><small>GET IN TOUCH</small><a href="mailto:hello@aurelionglobal.com">Email us</a><a href="tel:+919876543210">Call us</a><a href="/contact">Contact</a></div>
           <div className="footer-signoff">Care,<br /><em>together.</em></div>
         </div>
         <div className="container footer-bottom"><span>© {new Date().getFullYear()} Aurelion Global. All rights reserved.</span><span>Privacy · Terms · Accessibility</span></div>

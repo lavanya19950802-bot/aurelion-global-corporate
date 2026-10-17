@@ -76,3 +76,120 @@ section,header,footer,main{max-width:100%;}
 .video-modal-card .modal-close{right:12px;top:12px;background:rgba(255,255,255,.94);color:#211b10;box-shadow:0 2px 12px rgba(0,0,0,.2)}
 .overview-video{display:block;width:100%;max-height:82vh;aspect-ratio:16/9;object-fit:contain;background:#090909}
 @media(max-width:680px){.video-modal-card{width:calc(100vw - 24px)}.overview-video{max-height:72vh;aspect-ratio:9/16}}
+
+/* Screenshot-led refinement: wordmark, restrained white hero, and spacious careers page. */
+:root{--paper:#f8f6f0;--white:#fff}
+.header{background:rgba(255,255,255,.97)}
+.brand{gap:10px;align-items:center}
+.brand-logo{width:48px;height:48px}
+.brand-wordmark{display:flex;flex-direction:column;gap:2px;white-space:nowrap}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,1.55vw,24px);font-weight:500;line-height:1.05;color:#24221e;letter-spacing:-.35px}
+.brand-name i{font-style:normal;color:var(--gold);padding:0 3px;font-family:'Assistant',sans-serif;font-weight:300}
+.brand-name b{font-weight:500;color:#a9873e}
+.brand-wordmark small{font-family:'Assistant',sans-serif;font-size:9px;line-height:1.3;letter-spacing:3px;color:#a9873e;font-weight:600}
+.hero{background:#fff;padding-top:82px}
+.hero-layout{width:100%;padding:58px clamp(28px,6.8vw,110px) 48px;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:clamp(36px,6vw,100px);min-height:620px;align-items:center}
+.hero-content{padding:26px 0 36px;max-width:650px}
+.hero .eyebrow{font-size:10px;letter-spacing:2.2px;margin-bottom:30px}
+.hero h1{font-size:clamp(64px,6.4vw,104px);line-height:.88;letter-spacing:-3px;color:#111}
+.hero h1 em{color:#a88836}
+.hero-content>p{font-size:16px;line-height:1.75;max-width:490px;margin-top:30px;color:#777}
+.hero-visual{height:clamp(390px,42vw,600px);width:100%;background:#fff}
+.hero-visual>img{object-position:center center}
+.hero-stat,.image-index,.hero-bottom-line{display:none}
+.hero .container{max-width:none}
+.hero-layout.container{margin:0}
+.hero-bottom-line{background:#fff}
+.careers-section{background:linear-gradient(to bottom,#fff 0%,#fff 88%,#f8f6f0 88%,#f8f6f0 100%);padding:150px 0 130px;min-height:600px}
+.careers-content{padding-left:clamp(28px,3.7vw,60px)!important;padding-right:clamp(28px,3.7vw,60px)!important}
+.careers-content .section-label{font-size:12px;letter-spacing:2.2px;margin-bottom:28px}
+.careers-content h2{font-size:clamp(62px,7.2vw,100px);line-height:.98;letter-spacing:-2.8px;color:#111;margin:0 0 34px}
+.careers-content h2 em{color:#a88836}
+.careers-content>p{max-width:600px;font-size:16px;line-height:1.8;color:#777;margin:0 0 28px}
+.careers-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hospitals .hospital-grid{grid-template-columns:minmax(0,1fr);max-width:680px}
+.hospitals .hospital-image{height:340px}
+.footer-brand .brand-logo{width:45px;height:45px}
+@media(max-width:760px){.brand-logo{width:40px;height:40px}.brand-name{font-size:16px}.brand-wordmark small{font-size:7px;letter-spacing:2px}.hero-layout{grid-template-columns:1fr;padding:38px 24px 34px;gap:22px;min-height:unset}.hero-content{padding:28px 0 10px}.hero h1{font-size:clamp(58px,13vw,82px)}.hero-visual{height:clamp(300px,85vw,440px)}.careers-section{padding:105px 0 95px;min-height:unset}.careers-content h2{font-size:clamp(54px,12vw,76px)}.hospitals .hospital-image{height:270px}}
+@media(max-width:390px){.brand{gap:6px}.brand-logo{width:34px;height:34px}.brand-name{font-size:14px}.brand-wordmark small{font-size:6px;letter-spacing:1.5px}}
+.hero-layout.container{padding-left:clamp(28px,6.8vw,110px)!important;padding-right:clamp(28px,6.8vw,110px)!important}
+
+/* Dedicated Careers and Contact pages, with the reference's white editorial layout. */
+.page-careers main > section:not(#careers),
+.page-careers main > .specialty-marquee,
+.page-contact main > section:not(.contact-page-intro):not(#contact),
+.page-contact main > .specialty-marquee { display:none !important; }
+.page-careers .careers-section { display:block; background:linear-gradient(to bottom,#fff 0%,#fff 88%,#f8f6f0 88%,#f8f6f0 100%); padding:150px 0 130px; min-height:600px; text-align:left; color:#111; }
+.page-careers .careers-content .section-label { justify-content:flex-start; }
+.page-careers .careers-content h2 { max-width:850px; }
+.page-careers .careers-content p { margin-left:0; margin-right:0; }
+.page-careers .careers-actions { justify-content:flex-start; }
+.page-contact .contact-page-intro { display:block; padding:150px 0 64px; min-height:270px; background:#fff; }
+.contact-page-intro .container { padding-left:clamp(28px,4.5vw,70px)!important; padding-right:clamp(28px,4.5vw,70px)!important; }
+.contact-page-intro .section-label { margin-bottom:20px; }
+.contact-page-intro h1 { font:400 clamp(58px,7vw,88px)/.95 'Cormorant Garamond',serif; letter-spacing:-2px; color:#111; margin:0; }
+.page-contact .contact { display:block; background:#f8f6f0; }
+.page-contact .contact-grid { padding-top:30px; padding-bottom:30px; }
+.page-contact .contact-info h2 { display:none; }
+.page-contact .contact-info .section-label { display:none; }
+.footer-cta-block { text-align:center; padding:78px 24px 88px; background:#0b0b0a; color:#f8f6f0; }
+.footer-cta-block h2 { margin:0; font:400 clamp(42px,5vw,68px)/.98 'Cormorant Garamond',serif; letter-spacing:-1.5px; }
+.footer-cta-block h2 em { color:#d4b12e; font-weight:400; }
+.footer-cta-actions { display:flex; justify-content:center; gap:14px; margin-top:36px; }
+.footer-cta-actions .btn { min-width:170px; justify-content:center; }
+.footer { background:#0b0b0a; }
+.footer-main { padding-top:150px; }
+.footer-brand .brand-wordmark { color:#f8f6f0; }
+.footer-brand .brand-name { color:#f8f6f0; }
+@media(max-width:680px) {
+  .page-careers .careers-section { padding:105px 0 95px; min-height:unset; }
+  .page-contact .contact-page-intro { padding:112px 0 45px; min-height:220px; }
+  .footer-cta-block { padding:60px 18px; }
+  .footer-cta-actions { flex-direction:column; align-items:center; }
+  .footer-cta-actions .btn { width:min(100%,260px); }
+  .footer-main { padding-top:55px; }
+}
+
+/* Header alignment refinement: align the brand with the hero headline and pin Reach Us to the right margin. */
+.header .container.nav {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  padding-left: clamp(28px, 6.8vw, 110px);
+  padding-right: clamp(28px, 6.8vw, 110px);
+}
+.header .nav-links {
+  margin-left: auto;
+  gap: clamp(18px, 2.5vw, 38px);
+  font-size: 15px;
+}
+.header .nav-cta {
+  margin-left: clamp(18px, 2.2vw, 34px);
+  min-width: 124px;
+  justify-content: center;
+}
+@media (max-width: 760px) {
+  .header .container.nav { padding-left: 17px; padding-right: 17px; }
+  .header .nav-links { margin-left: 0; }
+  .header .nav-cta { margin-left: 0; }
+}
+
+
+/* Latest screenshot alignment: bring the logo in line with hero copy and move Reach Us closer to the right edge. */
+.header .container.nav {
+  padding-left: clamp(28px, 5.5vw, 88px);
+  padding-right: clamp(18px, 3.3vw, 52px);
+}
+.header .nav-cta {
+  margin-right: 0;
+}
+@media (max-width: 760px) {
+  .header .container.nav { padding-left: 17px; padding-right: 17px; }
+}
+
+
+/* Final header alignment: nudge the brand right and Reach Us slightly left. */
+@media (min-width: 761px) {
+  .header .brand { transform: translateX(10px); }
+  .header .nav-cta { transform: translateX(-18px); }
+}
