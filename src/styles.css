@@ -161,6 +161,7 @@ section,header,footer,main{max-width:100%;}
 .header .nav-links {
   margin-left: auto;
   gap: clamp(18px, 2.5vw, 38px);
+  font-size: 15px;
 }
 .header .nav-cta {
   margin-left: clamp(18px, 2.2vw, 34px);
@@ -191,24 +192,4 @@ section,header,footer,main{max-width:100%;}
 @media (min-width: 761px) {
   .header .brand { transform: translateX(10px); }
   .header .nav-cta { transform: translateX(-18px); }
-}
-
-/* Consistent left/right breathing room across page content; footer remains edge-to-edge. */
-main > .section > .container,
-main > .doctor-section > .container,
-main > .contact-page-intro > .container {
-  padding-left: clamp(20px, 4vw, 56px);
-  padding-right: clamp(20px, 4vw, 56px);
-}
-main > .section > .container.stats-row {
-  padding-left: clamp(20px, 4vw, 56px);
-  padding-right: clamp(20px, 4vw, 56px);
-}
-@media (max-width: 760px) {
-  main > .section > .container,
-  main > .doctor-section > .container,
-  main > .contact-page-intro > .container {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
 }
