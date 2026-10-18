@@ -115,7 +115,7 @@ section,header,footer,main{max-width:100%;}
 .hero-layout.container{padding-left:clamp(28px,6.8vw,110px)!important;padding-right:clamp(28px,6.8vw,110px)!important}
 
 /* Dedicated Careers and Contact pages, with the reference's white editorial layout. */
-.page-careers main > section:not(#careers),
+.page-careers main > section:not(#careers):not(#opportunities),
 .page-careers main > .specialty-marquee,
 .page-contact main > section:not(.contact-page-intro):not(#contact),
 .page-contact main > .specialty-marquee { display:none !important; }
@@ -242,4 +242,29 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-thumb:hover {
   background: #b99720;
+}
+
+.opportunities-section { background:#f8f6f0; padding:88px 0 100px; }
+.opportunities-content { box-sizing:border-box; padding-left:clamp(22px,5vw,76px)!important; padding-right:clamp(22px,5vw,76px)!important; }
+.opportunities-content>.section-label { margin-bottom:22px; }
+.opportunities-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; margin-bottom:38px; }
+.opportunities-heading h2 { margin:0; color:#171612; font:400 clamp(43px,5vw,66px)/.95 'Cormorant Garamond',serif; letter-spacing:-1.8px; }
+.opportunities-heading h2 em { color:var(--gold-deep); font-weight:400; }
+.opportunities-heading>p { max-width:360px; margin:0 0 5px; color:#77746d; font-size:13px; line-height:1.8; }
+.opportunities-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.opportunity-card { display:flex; flex-direction:column; align-items:flex-start; min-height:220px; padding:27px 28px 24px; background:#fff; border:1px solid #e8e4d9; }
+.opportunity-category { color:var(--gold-deep); font:500 9px/1.4 'DM Sans',sans-serif; letter-spacing:1.5px; }
+.opportunity-card h3 { margin:15px 0 8px; color:#24221e; font:500 25px/1.1 'Cormorant Garamond',serif; }
+.opportunity-card p { max-width:430px; margin:0 0 22px; color:#77746d; font-size:11px; line-height:1.75; }
+.opportunity-link { display:inline-flex; align-items:center; gap:8px; margin-top:auto; padding-bottom:6px; border-bottom:1px solid var(--gold); color:#4d483e; font-size:10px; font-weight:600; }
+.opportunity-link svg { color:var(--gold-deep); }
+.opportunities-note { margin:22px 0 0; color:#817d72; font-size:10px; line-height:1.7; }
+@media(max-width:680px) {
+  .opportunities-section { padding:62px 0 68px; }
+  .opportunities-content { padding-left:18px!important; padding-right:18px!important; }
+  .opportunities-heading { display:block; margin-bottom:26px; }
+  .opportunities-heading h2 { font-size:47px; }
+  .opportunities-heading>p { margin-top:16px; font-size:12px; }
+  .opportunities-grid { grid-template-columns:1fr; gap:11px; }
+  .opportunity-card { min-height:190px; padding:22px 20px; }
 }

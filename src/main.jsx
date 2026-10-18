@@ -23,6 +23,13 @@ const hospitals = [
   { name: "Phani Bhushan Hospitals", type: "Hospital network", image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=85", phani: true }
 ];
 
+const careerOpportunities = [
+  { category: "CLINICAL CARE", title: "Doctors & specialists", text: "Bring your clinical expertise to a team focused on excellent, compassionate patient care." },
+  { category: "NURSING", title: "Nursing professionals", text: "Help create a reassuring patient experience through skilled, thoughtful care." },
+  { category: "HOSPITAL OPERATIONS", title: "Operations & administration", text: "Support the people, processes and services that help hospitals run smoothly." },
+  { category: "PATIENT EXPERIENCE", title: "Patient services & support", text: "Make every interaction clearer, kinder and more helpful for patients and families." }
+];
+
 function App() {
   const page = window.location.pathname.replace(/\/+$/, "").split("/").pop() || "home";
   const isCareersPage = page === "careers";
@@ -150,9 +157,28 @@ function App() {
             <div className="section-label">CAREERS</div>
             <h2>Build a career that<br /><em>matters.</em></h2>
             <p>Join a company where exceptional people are trusted to do their finest work — in service of something profoundly human.</p>
-            <div className="careers-actions"><a href="#contact" className="btn btn-gold">Explore opportunities <ArrowRight size={15} /></a></div>
+            <div className="careers-actions"><a href="#opportunities" className="btn btn-gold">Explore opportunities <ArrowRight size={15} /></a></div>
           </div>
         </section>
+
+        {isCareersPage && <section id="opportunities" className="opportunities-section">
+          <div className="container opportunities-content">
+            <div className="section-label">FIND YOUR PLACE</div>
+            <div className="opportunities-heading">
+              <h2>Where could you<br /><em>make a difference?</em></h2>
+              <p>We welcome people who want to make healthcare more human. Tell us what you do and how you’d like to contribute.</p>
+            </div>
+            <div className="opportunities-grid">
+              {careerOpportunities.map((role) => <article className="opportunity-card" key={role.title}>
+                <span className="opportunity-category">{role.category}</span>
+                <h3>{role.title}</h3>
+                <p>{role.text}</p>
+                <a href={`mailto:hello@aurelionglobal.com?subject=${encodeURIComponent(`Career enquiry: ${role.title}`)}`} className="opportunity-link">Enquire about this role <ArrowUpRight size={15} /></a>
+              </article>)}
+            </div>
+            <p className="opportunities-note">These are areas where we welcome interest. Please email us to ask about current openings and share your CV.</p>
+          </div>
+        </section>}
 
         <section id="contact" className="section contact">
           <div className="container contact-grid">
